@@ -13,17 +13,38 @@ class TabLink {
     // We need to find out if a user clicked 'all' cards or a specific category.  Follow the instructions below to accomplish this task:    
     
     // Check to see if this.tabData is equal to 'all'
+    //this.cards;
+
     if(this.tabData === "all"){
       // If `all` is true, select all cards regardless of their data attribute values
-      this.cards = document.querySelectorAll("card");
+      this.cards = document.getElementsByClassName("card");
       console.log(this.cards);
       //debugger;
     } else {
       // else if `all` is false, only select the cards with matching this.tabData values
       //debugger;
       //console.log(this.tabData);
-      this.cards = document.querySelectorAll(this.tabData);
+      //let temp = document.getElementsByClassName("card");
+      //this.cards = temp.forEach(function(element){
+      //this.cards = document.getElementsByClassName("card").getElementsByTagName(this.tabData);
+      console.log(this.tabData);
+      //this.cards = document.getElementsByTagName(this.tabData);
+      //this.cards = document.getElementsByClassName("card").querySelectorAll(this.tabData);
+      //});
+      //let tempArray = [];
+      //console.log(temp[0].getAttribute("data-tab"));
+      //for (let n = 0; n < temp.length; n++){
+      //  if (this.tabData === temp[n].getAttribute("data-tab")){
+      //    tempArray.push(temp[n]);
+      //    //console.log(this.tabData);
+      //  }
+      //}
+
+      //this.cards = tempArray.
+      console.log(this.cards);
     }
+
+    //console.log(this.cards);
 
      // Map over the newly converted NodeList we just created in our if statement above. Convert each this.cards element into a new instance of the TabCard class. Pass in a card object to the TabCard class. 
     this.cards = Array.from(this.cards).map(function(card) {new TabCard(card)});
