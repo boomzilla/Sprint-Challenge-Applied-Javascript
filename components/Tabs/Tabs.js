@@ -18,12 +18,12 @@ class TabLink {
     if(this.tabData === "all"){
       // If `all` is true, select all cards regardless of their data attribute values
       this.cards = document.querySelectorAll(".card");
-      console.log(this.cards);
+      //console.log(this.cards);
       //debugger;
     } else {
       //temp = document.querySelector();
       //temp = document.querySelector();
-      console.log(this.tabData)
+      //console.log(this.tabData)
       let temp = document.querySelector(".cards-container");
       this.cards = temp.querySelectorAll(`[data-tab=${this.tabData}]`); //it took me two hours to figure this out b/c I'm a do0rk
 
@@ -50,13 +50,15 @@ class TabLink {
       //}
 
       //this.cards = tempArray.
-      console.log(this.cards);
+      //console.log(this.cards);
     }
 
     //console.log(this.cards);
 
      // Map over the newly converted NodeList we just created in our if statement above. Convert each this.cards element into a new instance of the TabCard class. Pass in a card object to the TabCard class. 
-    this.cards = Array.from(this.cards).map(function(card) {new TabCard(card)});
+    this.cards = Array.from(this.cards).map(function(card) {return new TabCard(card)});
+    //Array.from(this.cards).map(function(card) {new TabCard(card)});
+    console.log(this.cards);
 
     // Add a click event that invokes this.selectTab
     this.tabElement.addEventListener("click", this.selectTab());
@@ -64,6 +66,7 @@ class TabLink {
 
   selectTab(){
 
+    console.log("select tab");
     // Select all elements with the .tab class on them
     const tabs = document.querySelectorAll(".tab");
     
@@ -84,7 +87,7 @@ class TabLink {
     this.tabElement.classList.add(".active-tab");
   
     // Notice we are looping through the this.cards array and invoking selectCard() from the TabCard class. Just un-comment the code and study what is happening here.
-    // this.cards.forEach(card => card.selectCard());
+    this.cards.forEach(card => card.selectCard());
   }
 }
 
@@ -95,7 +98,7 @@ class TabCard {
   }
   selectCard(){
     // Update the style of this.cardElement to display = "flex"
-    debugger;
+    //debugger;
     this.cardElement.style.display = "flex";
   }
 
