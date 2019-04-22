@@ -17,17 +17,26 @@ class TabLink {
 
     if(this.tabData === "all"){
       // If `all` is true, select all cards regardless of their data attribute values
-      this.cards = document.getElementsByClassName("card");
+      this.cards = document.querySelectorAll(".card");
       console.log(this.cards);
       //debugger;
     } else {
+      //temp = document.querySelector();
+      //temp = document.querySelector();
+      console.log(this.tabData)
+      let temp = document.querySelector(".cards-container");
+      this.cards = temp.querySelectorAll(`[data-tab=${this.tabData}]`); //it took me two hours to figure this out b/c I'm a do0rk
+
       // else if `all` is false, only select the cards with matching this.tabData values
+      //let temp = document.getElementsByClassName("card");
+      //this.cards = temp.filter(elem => elem.getAttribute('data-tab') === this.tabData);
+
       //debugger;
       //console.log(this.tabData);
       //let temp = document.getElementsByClassName("card");
       //this.cards = temp.forEach(function(element){
       //this.cards = document.getElementsByClassName("card").getElementsByTagName(this.tabData);
-      console.log(this.tabData);
+      //console.log(this.tabData);
       //this.cards = document.getElementsByTagName(this.tabData);
       //this.cards = document.getElementsByClassName("card").querySelectorAll(this.tabData);
       //});
