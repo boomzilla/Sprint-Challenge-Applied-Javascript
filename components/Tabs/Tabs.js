@@ -61,7 +61,8 @@ class TabLink {
     console.log(this.cards);
 
     // Add a click event that invokes this.selectTab
-    this.tabElement.addEventListener("click", this.selectTab());
+    //this.tabElement.addEventListener("click", this.selectTab());
+    this.tabElement.addEventListener("click", this.selectTab);
   }
 
   selectTab(){
